@@ -1,7 +1,7 @@
 ## This R script is a Coursera assignment to compute the inverse of cached
 ## matrices. 
 
-## makeCacheMatrix: make a function list to catch the inverse and cache it in m.
+## makeCacheMatrix: to make a function list to catch the inverse and cache it in m.
 
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
