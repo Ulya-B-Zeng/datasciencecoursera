@@ -1,5 +1,7 @@
-complete <- function(directory,id=1:332){
-  setwd(directory)
+complete <- function(directory=NULL,id=1:332){
+  if(!is.null(directory)){
+    setwd(directory)
+    }
   comp <- data.frame()
   for(i in id){
     if(i<10){
@@ -14,5 +16,5 @@ complete <- function(directory,id=1:332){
     comp <- rbind.data.frame(comp,c(i,x))
   }
   colnames(comp) <- c("id","nobs")
-  print(comp)
+  comp
 }

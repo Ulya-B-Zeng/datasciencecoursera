@@ -1,5 +1,7 @@
-pollutantmean <- function(directory,pollutant,id=1:332){
-  setwd(directory)
+pollutantmean <- function(directory=NULL,pollutant,id=1:332){
+  if(!is.null(directory)){
+    setwd(directory)
+  }
   aggre <- data.frame()
   for(i in id){
     if(i<10){
