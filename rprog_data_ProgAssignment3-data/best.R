@@ -1,5 +1,6 @@
 ## best function: to find the best hospital with the least 30-day mortality RATE
 ## for the specified outcome.
+## Warning: This function drops the rows with NA in specified outcomes!!!!!
 
 best <- function(state=NULL,outcome=c("heart attack","heart failure","pneumonia")){
   ##0. Read the file
@@ -40,6 +41,9 @@ best <- function(state=NULL,outcome=c("heart attack","heart failure","pneumonia"
   data_order <- data_split[[state]][order(data_split[[state]][[outcome]],
                                           data_split[[state]][["Hospital.Name"]],
                                           decreasing = FALSE,na.last = NA),]
+      ## here, "data_split[[state]][["Hospital.Name"]]" in "order" function is 
+      ## performed as the second ordering column to ensure the hospital names 
+      ## being sorted in alphabetical order.
   result <- head(data_order,1,header=FALSE)
   print(result[,1])
 }
